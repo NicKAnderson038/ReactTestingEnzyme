@@ -71,13 +71,26 @@ export class Todo extends Component {
                         onChange={(event)=>this.handleTextChange(event)} 
                         value={this.state.text} 
                         ref = {element => this.inputBox = element } 
+                        data-test="input-box"
                         />
               </div>
               <div className="col-md-3">
-                <button className="btn btn-primary" onClick={(event)=>this.handleAddItem(event)} disabled={!this.state.text}>{"Add #" + (this.state.items.length + 1)}</button>
+                <button className="btn btn-primary" 
+                    onClick={(event)=>this.handleAddItem(event)} 
+                    disabled={!this.state.text}
+                    data-test="btn-add"
+                    >
+                    {"Add #" + (this.state.items.length + 1)}   
+                </button>
               </div>
               <div className="col-md-3">
-                <button className="btn btn-primary" onClick={()=>this.handleClearItem()} disabled={!this.state.text}>{"Clear"}</button>
+                <button className="btn btn-primary" 
+                    onClick={()=>this.handleClearItem()} 
+                    disabled={!this.state.text}
+                    data-test="btn-clear"
+                    >
+                {"Clear"}
+                </button>
               </div>
             </form>
           </div>
