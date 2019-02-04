@@ -15,7 +15,7 @@ export class Todo extends Component {
       handleAddItem(event) {
         event.preventDefault();
         
-        var newItem = {
+        const newItem = {
           id: Date.now(),
           text: this.state.text,
           done: false
@@ -27,7 +27,7 @@ export class Todo extends Component {
         }));
       }
       markItemCompleted = (itemId) => {
-        var updatedItems = this.state.items.map(item => {
+        const updatedItems = this.state.items.map(item => {
           if (itemId === item.id)
             item.done = !item.done;
           
