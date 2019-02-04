@@ -9,7 +9,8 @@ describe('Checking todo main component', ()=>{
     it('testing if todo is loaded', ()=>{
         const wrapper = shallow(<Todo/>)
         wrapper.instance()
-        expect(wrapper)
+        
+        expect(wrapper.find('[data-test="input-box"]'))
     })
 
 
