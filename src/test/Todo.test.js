@@ -8,12 +8,12 @@ describe('Checking todo main component', ()=>{
     let wrapper;
     beforeEach(()=> wrapper = shallow(<Todo/>))
 
-    it('should have loaded todo and checked with toHaveLength() method', ()=>{
+    it('should have loaded <Todo/> and checked with toHaveLength() method', ()=>{
         wrapper.instance()
         expect(wrapper).toHaveLength(1)
     })
 
-    it('should have loaded todo and checked with find() method', ()=>{
+    it('should have loaded add button and checked with find() method', ()=>{
         wrapper.instance()
         expect(wrapper.find('[data-test="input-box"]'))
     })
