@@ -4,6 +4,7 @@ import Todo from '../components/Todo'
 import { shallow } from './enzyme.config'
 
 describe('Checking todo main component', ()=>{
+    
     let wrapper;
     beforeEach(()=> wrapper = shallow(<Todo/>))
 
@@ -14,11 +15,16 @@ describe('Checking todo main component', ()=>{
 
     it('testing if todo is loaded', ()=>{
         wrapper.instance()
-        console.log(wrapper)
         expect(wrapper.find('[data-test="input-box"]'))
     })
 
-
+    it('focus was activated', ()=> {
+        const mockObj = { focus: jest.fn() };
+        const inst = wrapper.instance();
+        inst.inputBox = mockObj;
+        inst.handleClearItem();
+        expect(mockObj.focus).toHaveBeenCalled();
+    })
 
 
 })
