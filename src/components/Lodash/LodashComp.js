@@ -1,5 +1,6 @@
 import React from 'react'
 import cloneDeep from 'lodash/cloneDeep'
+import classes from './LodashComp.module.css'
 
 const oldObj = {
   name: 'nick',
@@ -38,7 +39,7 @@ const lodashComp = () => {
     return(<li key={data.id}>{data.clouds}</li>)
   })
   return (
-    <div>
+    <div className={classes.main}>
       <h6>Name: {newObj.name}</h6>
       <h6>Date: {newObj.date}</h6>
       <ul>

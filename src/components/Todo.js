@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import TodoList from './TodoList'
-import LodashComp from './LodashComp'
+import LodashComp from './Lodash/LodashComp'
 
 export class Todo extends Component {
       state = {
