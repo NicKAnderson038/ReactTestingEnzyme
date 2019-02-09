@@ -1,3 +1,6 @@
 .main {
     display: flex;
+    border: 1px solid green;
+    border-radius: 2%;
+    margin: 6px 20px;
 }

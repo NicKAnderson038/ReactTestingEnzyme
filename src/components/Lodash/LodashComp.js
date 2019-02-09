@@ -3,7 +3,7 @@ import cloneDeep from 'lodash/cloneDeep'
 import classes from './LodashComp.module.css'
 
 const oldObj = {
-  name: 'nick',
+  name: 'Person 1',
   date: new Date().getFullYear(),
   extra: {
     wish: 'rain',
@@ -39,12 +39,14 @@ const lodashComp = () => {
     return(<li key={data.id}>{data.clouds}</li>)
   })
   return (
-    <div className={classes.main}>
+    <div>
       <h6>Name: {newObj.name}</h6>
       <h6>Date: {newObj.date}</h6>
+      <div className={classes.main}>
       <ul>
         {arg}
       </ul>
+      </div>
     </div>
   )
 }
