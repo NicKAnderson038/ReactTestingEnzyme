@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TodoList from './TodoList'
+import LodashComp from './LodashComp'
 
 export class Todo extends Component {
       state = {
@@ -93,6 +94,9 @@ export class Todo extends Component {
                 </button>
               </div>
             </form>
+            <br/>
+            <br/>
+            <LodashComp/>
           </div>
         );
       }
