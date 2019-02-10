@@ -35,8 +35,9 @@ docker container run -it -v $(pwd):/app react:app test --coverage
 docker container run -it -v $(pwd):/app react:app test --help
 
 ```
+<br>
 
-Dockerfile
+Create file called: Dockerfile
 ```Dockerfile
 FROM node:10
 
@@ -58,9 +59,9 @@ ENTRYPOINT ["/bin/bash", "/app/run.sh"]
 CMD ["start"]
 ```
 
+<br>
 
-
-run.sh
+Create file called: run.sh
 ```bash
 #!/usr/bin/env bash
 set -eo pipefail
