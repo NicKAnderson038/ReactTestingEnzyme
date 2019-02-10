@@ -13,14 +13,13 @@ ENV PATH=$PATH:/node_modules/.bin
 # install and cache app dependencies
 RUN yarn
 
-# app name testing-todo
 WORKDIR /testing-todo
 ADD . /testing-todo
 
 EXPOSE 3000
 EXPOSE 35729
 
-ENTRYPOINT ["/bin/bash", "/app/run.sh"]
+ENTRYPOINT ["/bin/bash", "/testing-todo/run.sh"]
 
 # start app
 CMD ["start"]
