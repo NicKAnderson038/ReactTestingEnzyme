@@ -1,5 +1,91 @@
 # ReactTestingEnzyme
 
+## Building Docker steps
+
+1. Building an application with create-react-app.
+2. Run the 'yarn' or 'npm install' commands.
+
+```bash
+# Remove node_modules
+rm -fr node_modules
+
+# create 2 new files in the root dir 'Dockerfile' & 'run.sh'
+
+# Build docker image
+docker image build -t react:app .
+
+# Looking inside docker image (not necessary)
+docker container run -it react:app bash
+
+# Running container 
+    # 1. without warm-reloading
+docker container run -it -p 3000:3000 react:app
+
+    # 2. with Warm-reloading!!! recommended for local development
+docker container run -it -p 3000:3000 -p 35729:35729 -v $(pwd):/app react:app
+
+# Build directories for deployment
+docker container run -it -v $(pwd):/app react:app build
+
+# Running Tests
+docker container run -it -v $(pwd):/app react:app test
+# ||
+docker container run -it -v $(pwd):/app react:app test --coverage
+# ||
+docker container run -it -v $(pwd):/app react:app test --help
+
+```
+
+Dockerfile
+```Dockerfile
+FROM node:10
+
+ADD yarn.lock /yarn.lock
+ADD package.json /package.json
+
+ENV NODE_PATH=/node_modules
+ENV PATH=$PATH:/node_modules/.bin
+RUN yarn
+
+WORKDIR /app
+ADD . /app
+
+EXPOSE 3000
+EXPOSE 35729
+
+ENTRYPOINT ["/bin/bash", "/app/run.sh"]
+
+CMD ["start"]
+```
+
+
+
+run.sh
+```bash
+#!/usr/bin/env bash
+set -eo pipefail
+
+case $1 in
+  start)
+    # The '| cat' is to trick Node that this is an non-TTY terminal
+    # then react-scripts won't clear the console.
+    yarn start | cat
+    ;;
+  build)
+    yarn build
+    ;;
+  test)
+    yarn test $@
+    ;;
+  *)
+    exec "$@"
+    ;;
+esac
+```
+
+#
+
+<br>
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
