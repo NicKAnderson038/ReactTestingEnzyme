@@ -34,6 +34,9 @@ docker container run -it -v $(pwd):/app react:app test --coverage
 # ||
 docker container run -it -v $(pwd):/app react:app test --help
 
+# view all docker images
+docker ps -a -f status=exited
+
 ```
 <br>
 
