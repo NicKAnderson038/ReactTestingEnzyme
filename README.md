@@ -48,8 +48,9 @@ ENV NODE_PATH=/node_modules
 ENV PATH=$PATH:/node_modules/.bin
 RUN yarn
 
-WORKDIR /app
-ADD . /app
+# replace MY-APP with your app name
+WORKDIR /MY-APP
+ADD . /MY-APP
 
 EXPOSE 3000
 EXPOSE 35729

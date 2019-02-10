@@ -13,8 +13,9 @@ ENV PATH=$PATH:/node_modules/.bin
 # install and cache app dependencies
 RUN yarn
 
-WORKDIR /app
-ADD . /app
+# app name testing-todo
+WORKDIR /testing-todo
+ADD . /testing-todo
 
 EXPOSE 3000
 EXPOSE 35729
