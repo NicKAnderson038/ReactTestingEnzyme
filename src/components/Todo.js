@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TodoList from './TodoList'
 import LodashComp from './Lodash/LodashComp'
+import Hook from './hooks/hooks'
 
 export class Todo extends Component {
       state = {
@@ -58,7 +59,7 @@ export class Todo extends Component {
 
       render() {
         return (
-          <div>
+          <div className="appmain">
             <h3 className="apptitle">MY TO DO LIST</h3>
             <div className="row">
               <div className="col-md-3">
@@ -97,6 +98,8 @@ export class Todo extends Component {
             <br/>
             <br/>
             <LodashComp/>
+            <br/>
+            <Hook/>
           </div>
         );
       }
